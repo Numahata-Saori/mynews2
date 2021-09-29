@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Member;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\News;
+use Auth;
 
 class NewsController extends Controller
 {
@@ -36,6 +38,7 @@ class NewsController extends Controller
 
         // データベースに保存する
         $news->fill($form);
+        //$news->user_id = Auth::id();
         $news->save();
         
         return redirect('member/news/create');

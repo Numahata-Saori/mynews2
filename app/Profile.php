@@ -18,4 +18,7 @@ class Profile extends Model
         'introduction' => 'required',
     );
     
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }

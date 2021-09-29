@@ -33,6 +33,7 @@
                             <input type="file" class="form-control-file" name="image">
                         </div>
                     </div>
+                    <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                     {{ csrf_field() }}
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
