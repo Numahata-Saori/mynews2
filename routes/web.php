@@ -19,11 +19,13 @@ Route:: group(['prefix' => 'member', 'middleware' => 'auth'], function() {
     
     Route:: get('news/create', 'Member\NewsController@add');
     Route:: post('news/create', 'Member\NewsController@create');
+    Route:: get('news', 'Member\NewsController@index');
     
     Route:: get('profile/create', 'Member\ProfileController@add');
     Route:: post('profile/create', 'Member\ProfileController@create');
     Route:: get('profile/edit', 'Member\ProfileController@edit');
     Route:: post('profile/edit', 'Member\ProfileController@update');
+    Route:: get('profile', 'Member\ProfileController@index');
     
 });
 
