@@ -69,8 +69,14 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
                                 
-                                //メニューバー
+                                {{--メニューバー--}}
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    
+                                    <a class="dropdown-item" href="{{ action('Member\NewsController@index', ['user_id']) }}">投稿一覧</a>
+                                    <a class="dropdown-item" href="{{ action('Member\NewsController@create', ['user_id']) }}">新規投稿</a>
+                                    <a class="dropdown-item" href="{{ action('Member\ProfileController@index', ['user_id']) }}">プロフィール編集</a>
+                                    {{--<a class="dropdown-item" href="{{ action('Member\ProfileController@edit', ['id'=>'1']) }}">プロフィール編集</a>--}}
+                                    
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
