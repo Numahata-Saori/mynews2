@@ -19,4 +19,11 @@ class News extends Model
     public function user() {
         return $this->belongsTo('App\User');
     }
+    
+    // News Modelに関連付けを行う
+    public function histories() {
+        return $this->hasMany('App\History');
+    }
+    
+    
 }

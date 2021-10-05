@@ -31,8 +31,11 @@ Route:: group(['prefix' => 'member', 'middleware' => 'auth'], function() {
     Route:: get('profile', 'Member\ProfileController@index');
     Route:: get('profile/delete', 'Member\ProfileController@delete');
     
+    
 
 });
+
+
 
 
 //Route:: get('XXX','AAAController@bbb');

@@ -44,6 +44,7 @@
                                     <th>{{ $news->user->name }}</th>
                                     <td>{{ str_limit($news->title, 100) }}</td>
                                     <td>{{ str_limit($news->body, 250) }}</td>
+                                    
                                     <td>
                                         <div>
                                             <a href="{{ action('Member\NewsController@edit', ['id' => $news->id]) }}">編集</a>
