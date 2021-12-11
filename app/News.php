@@ -25,5 +25,13 @@ class News extends Model
         return $this->hasMany('App\History');
     }
     
+    public function likes() {
+        return $this->hasMany('App\Like');
+    }
     
+    // そのニュースにいいねをしたユーザーを全部取得
+    // Newsモデルに実装する関数
+    public function likedUsers() {
+      return $this->hasManyThrough('App\User', 'App\Like');
+    }
 }

@@ -45,3 +45,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'NewsController@index');
 
 Route::get('/profile', 'ProfileController@index');
+
+// いいねボタン
+Route::get('/like', 'LikeController@like')->name('like');
+Route::get('/dislike', 'LikeController@dislike')->name('dislike');

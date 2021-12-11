@@ -45,7 +45,18 @@ class User extends Authenticatable
         return $this->hasOne('App\Profile');
     }
     
+    public function likes() {
+        return $this->hasMany('App\Like');
+    }
     
+    public function isliked($news_id) {
+        $like = Like::where('news_id', $news_id)->where('user_id', $this->id)->first();
+        return $like != null;
+    }
     
-    
+    // その人がいいねをしたニュースを全部取得
+    // Userモデルに実装する関数
+    public function likedNews() {
+      return $this->hasManyThrough('App\News', 'App\Like');
+    }
 }

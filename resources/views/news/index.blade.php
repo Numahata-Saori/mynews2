@@ -22,6 +22,30 @@
                         <div class="col-md-6">
                             <p class="body mx-auto">{{ str_limit($headline->body, 650) }}</p>
                         </div>
+                        
+                        <div>
+                        <!-- もしユーザーが「いいね」をしていたら -->
+                        @if(Auth::user()->isliked($headline->id))
+                        <!-- 「いいね」取消用ボタンを表示 -->
+                          <a href="{{ route('dislike') . '?news_id=' . $headline->id }}" class="btn btn-success btn-sm">
+                          いいね<img src="{{asset('img/heart-pink.png')}}" width="30px">
+                            <!-- 「いいね」の数を表示 -->
+                            <span class="badge">
+                            	{{ count($headline->likes) }}
+                            </span>
+                        </a>
+                        @else
+                        <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                          <a href="{{ route('like') . '?news_id=' . $headline->id }}" class="btn btn-secondary btn-sm">
+                          いいね<img src="{{asset('img/heart-black.png')}}" width="30px">
+                            <!-- 「いいね」の数を表示 -->
+                            <span class="badge">
+                            	{{ count($headline->likes) }}
+                            </span>
+                        </a>
+                        @endif
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -48,6 +72,30 @@
                                     <img src="{{ asset('storage/image/' . $post->image_path) }}">
                                 @endif
                             </div>
+                            
+                            <div>
+                            <!-- もしユーザーが「いいね」をしていたら -->
+                            @if(Auth::user()->isliked($post->id))
+                            <!-- 「いいね」取消用ボタンを表示 -->
+                              <a href="{{ route('dislike') . '?news_id=' . $post->id }}" class="btn btn-success btn-sm">
+                              いいね<img src="{{asset('img/heart-pink.png')}}" width="30px">
+                                <!-- 「いいね」の数を表示 -->
+                                <span class="badge">
+                                	{{ count($post->likes) }}
+                                </span>
+                            </a>
+                            @else
+                            <!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+                              <a href="{{ route('like') . '?news_id=' . $post->id }}" class="btn btn-secondary btn-sm">
+                              いいね<img src="{{asset('img/heart-black.png')}}" width="30px">
+                                <!-- 「いいね」の数を表示 -->
+                                <span class="badge">
+                                	{{ count($post->likes) }}
+                                </span>
+                            </a>
+                            @endif
+                            </div>
+                            
                         </div>
                     </div>
                     <hr color="#c0c0c0">
@@ -56,4 +104,8 @@
         </div>
     </div>
     </div>
+    
+    
+    
+    
 @endsection

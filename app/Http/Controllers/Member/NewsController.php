@@ -9,6 +9,7 @@ use App\History;
 use Carbon\Carbon;
 use Auth;
 
+
 class NewsController extends Controller
 {
     //
@@ -44,7 +45,7 @@ class NewsController extends Controller
         //$news->fill($form);
         //$news->save();
         
-        return redirect('member/news/create');
+        return redirect('member/news/');
         }
     
     
@@ -112,6 +113,7 @@ class NewsController extends Controller
         $news->delete();
         return redirect('member/news/');
     }
+    
     
     
 }

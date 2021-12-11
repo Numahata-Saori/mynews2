@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\HTML;
 
 use App\News;
+use App\Like;
+use Auth;
 
 class NewsController extends Controller
 {
@@ -19,6 +21,11 @@ class NewsController extends Controller
             $headline = null;
         }
         
+        $like = Like::where('news_id', $request->news_id)->where('user_id', Auth::id())->first();
+        // $like = Like::where('news_id', $news->id)->where('user_id', auth()->user()->id)->first();
+        
         return view('news.index', ['headline' => $headline, 'posts' => $posts]);
     }
+    
+    
 }
